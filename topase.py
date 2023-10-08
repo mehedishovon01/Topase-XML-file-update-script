@@ -64,13 +64,13 @@ def datapointCalculatios(soup, startDatetime):
         douaiQuantity = input("Enter the Quantity of Douai: ")
         flinsQuantity = input("Enter the Quantity of Flins: ")
 
-        if int(douaiQuantity) >= 4:
+        if (int(douaiQuantity) <= 4) is False:
             print("Douai Quantity must be less or equal 4! Please try again.")
-        elif int(flinsQuantity) >= 16:
+        elif (int(flinsQuantity) <= 16) is False:
             print("Flins Quantity must be less or equal 16! Please try again.")
         else:
             break
-        
+
     values = [
         douaiQuantity,
         douaiQuantity,
@@ -199,4 +199,4 @@ if __name__ == "__main__":
 
     # Print in console to take time in seconds to execute this script
     start = time.time()
-    print(f'This script took {round(time.time() - start, 4)} seconds to generate the results')
+    print(f'Success! This script took {round(time.time() - start, 4)} seconds to generate the results')
