@@ -73,32 +73,32 @@ Run the Script XML file in Browser. Now, open the browser and paste this develop
 
 Note: Please make sure the downloaded XML file and all the scripts are in the same folder.
 
-## `Input From Description`
-#### _Version Number_
-* We have updated the Version Number wherever it is and increment it by one which number already had.
-* As the Version Number & Revision Number are same so the script will automatically update the Revision Number.
+## `Input Form Description`
+> _Version Number_
+> * We have updated the Version Number wherever it is and increment it by one which number already had.
+> * As the Version Number & Revision Number are same so the script will automatically update the Revision Number.
 
-#### _Start Date_
-* Give only the date as input.
+> _Start Date_
+> * Give only the date as input.
 
-#### _Time_
-* Update the running time with saling round figure. Plus one hour with that Minus six hour from that time. 
-* Note: The time input must be: XX:XX this format. Otherwise the script will give you an error.
+> _Time_
+> * Update the running time with saling round figure. Plus one hour with that Minus six hour from that time. 
+> * Note: The time input must be: XX:XX this format. Otherwise the script will give you an error.
 
-#### _Douai Present Quantity_
-* Here, you have to give input that the quantity you want to change.
+> _Douai Present Quantity_
+> * Here, you have to give input that the quantity you want to change.
 
-#### _Douai New Quantity_
-* Here, you have to give the new quantity you want to.
+> _Douai New Quantity_
+> * Here, you have to give the new quantity you want to.
 
-#### _Add Another?_
-* Some times we have seen that there are many types of quantity has been setting up by TMH. So, if we need to update multiple types of quantity the click the Add Another and the it will open a new row where it will display Douai Present Quantity & Douai New Quantity.
+> _Add Another?_
+> * Some times we have seen that there are many types of quantity has been setting up by TMH. So, if we need to update multiple types of quantity the click the Add Another and the it will open a new row where it will display Douai Present Quantity & Douai New Quantity.
 
-#### _Flins Present Quantity_
-* Same as Douai Present Quantity
+> _Flins Present Quantity_
+> * Same as Douai Present Quantity
 
-#### _Flins New Quantity_
-* Same as Douai New Quantity
+> _Flins New Quantity_
+> * Same as Douai New Quantity
 
 After the fully fill-up the form click on the Generate. And then it will create a new XML file and exported in the same directory with the update.
 
