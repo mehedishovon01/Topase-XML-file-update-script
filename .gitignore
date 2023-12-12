@@ -8,6 +8,7 @@ __pycache__/
 
 # Additional file/folder
 *.xml
+topase_process
 
 # Distribution / packaging
 .Python

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--  meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <title>XML File Generator!</title>
+</head>
+
+<style>
+    .navbar-brand {
+        float: none;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand navbar-brand mx-auto text-center center-block" href="#">
+            <h2>Regenerate XML File<h2>
+        </a>
+    </nav>
+    <div class="container">
+        <!-- Just an image -->
+        <div class="pt-5">
+            <form method="POST" action="/">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Please Upload XML file</label>
+                    <input type="file" class="form-control" name="xml_file_path" id="exampleFormControlFile1" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Version Number</label>
+                    <input type="number" class="form-control col-md-3" name="rV_number" id="inputAddress"
+                        placeholder="Enter Version Number" required/>
+                    <label for="inputAddress"><i>Note: Version Number & Revision number are same!</i></label>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputCity">Start Date</label>
+                        <input type="date" class="form-control" name="start_date" id="inputCity" required/>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputState">Time</label>
+                        <input type="text" class="form-control" name="start_time" id="inputCity" required/>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputCity">Douai Present Quantity</label>
+                        <input type="number" class="form-control" name="douai_quantity[]" id="inputCity" required/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputState">Douai New Quantity</label>
+                        <input type="number" class="form-control" name="new_douai_quantity[]" id="inputCity" required/>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip" class="ml-5">Add Another?</label><br>
+                        <button type="button" onclick="addDouaiInput()" class="ml-5 btn btn-secondary">+Add Douai</button>
+                    </div>
+                </div>
+                <div id="douaiDiv"></div>
+                <hr>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputCity">Flins Present Quantity</label>
+                        <input type="number" class="form-control" name="flins_quantity[]" id="inputCity" required/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputState">Flins New Quantity</label>
+                        <input type="number" class="form-control" name="new_flins_quantity[]" id="inputCity" required/>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip" class="ml-5">Add Another?</label><br>
+                        <button type="button" onclick="addFlinsInput()" class="ml-5 btn btn-secondary">+Add Flins</button>
+                    </div>
+                </div>
+                <div id="flinsDiv"></div>
+                <button type="submit" class="btn btn-success">Generate</button>
+            </form>
+
+                <!-- Placeholder for the success message -->
+            <div id="success-message"></div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+    const douaiItem = document.createElement('douaiDiv');
+    const flinsItem = document.createElement('flinsDiv');
+    
+    douaiItem.innerHTML = `
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="inputCity">Douai Present Quantity</label>
+            <input type="number" class="form-control" name="douai_quantity[]" id="inputCity" />
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputState">Douai New Quantity</label>
+            <input type="number" class="form-control" name="new_douai_quantity[]" id="inputState" />
+        </div>
+    </div>
+    `;
+
+    flinsItem.innerHTML = `
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="inputCity">Flins Present Quantity</label>
+            <input type="number" class="form-control" name="flins_quantity[]" id="inputCity" />
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputState">Flins New Quantity</label>
+            <input type="number" class="form-control" name="new_flins_quantity[]" id="inputState" />
+        </div>
+    </div>
+    `;
+    
+    function addDouaiInput() {
+        // Find the existing div with the ID "newDiv"
+        var existingDiv = document.getElementById("douaiDiv");
+
+        // Append the newItem (which is a DOM element) to the existing div
+        existingDiv.appendChild(douaiItem.cloneNode(true));
+    }
+
+    function addFlinsInput() {
+        // Find the existing div with the ID "newDiv"
+        var existingDiv = document.getElementById("flinsDiv");
+
+        // Append the newItem (which is a DOM element) to the existing div
+        existingDiv.appendChild(flinsItem.cloneNode(true));
+    }
+    
+</script>
+
+</html>
